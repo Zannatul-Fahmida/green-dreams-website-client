@@ -26,8 +26,8 @@ const Header = () => {
     };
 
     return (
-        <AppBar position="static">
-            <Container maxWidth="xl">
+        <AppBar position="static" sx={{ bgcolor: 'success.main' }}>
+            <Container>
                 <Toolbar disableGutters>
                     <Typography
                         variant="h6"
