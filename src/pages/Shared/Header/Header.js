@@ -140,7 +140,7 @@ const Header = () => {
                                     <>
                                         {settings.map((setting) => (
                                             <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                                                <Button textAlign="center">{setting}</Button>
+                                                <Button textAlign="center" onClick={setting==='logout' && {logOut}}>{setting}</Button>
                                             </MenuItem>
                                         ))}
                                     </>
