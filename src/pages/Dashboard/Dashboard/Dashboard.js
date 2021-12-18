@@ -1,11 +1,9 @@
-import { Outlet } from '@mui/icons-material';
-import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemText, Toolbar, Typography } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useFirebase from '../../../hooks/useFirebase';
 import MenuIcon from '@mui/icons-material/Menu';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import PropTypes from 'prop-types';
 
 const drawerWidth = 200;
 
@@ -133,5 +131,11 @@ const Dashboard = (props) => {
         </Box>
     );
 };
-
+Dashboard.propTypes = {
+    /**
+     * Injected by the documentation to work in an iframe.
+     * You won't need it on your project.
+     */
+    window: PropTypes.func,
+};
 export default Dashboard;

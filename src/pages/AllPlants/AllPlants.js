@@ -1,8 +1,8 @@
 import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import Plant from '../Plant/Plant';
+import Plant from '../Home/Plant/Plant';
 
-const Plants = () => {
+const AllPlants = () => {
     const [plants, setPlants] = useState([]);
     useEffect(() => {
         fetch('https://serene-caverns-16512.herokuapp.com/plants')
@@ -11,14 +11,13 @@ const Plants = () => {
     }, []);
     return (
         <Container>
-            <Typography variant="h4" sx={{ my: 4 }}>Popular Plants</Typography>
+            <Typography variant="h4" sx={{ my: 4 }}>All Plants</Typography>
             <Grid container spacing={2}>
                 {
-                    plants.map((plant, index) => index >= 0 && index <= 3 ? <Plant
+                    plants.map(plant => <Plant
                         key={plant._id}
                         plant={plant}
                     ></Plant>
-                        : ''
                     )
                 }
             </Grid>
@@ -26,4 +25,4 @@ const Plants = () => {
     );
 };
 
-export default Plants;
+export default AllPlants;
