@@ -2,11 +2,15 @@ import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Too
 import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+import LoginIcon from '@mui/icons-material/Login';
+import useFirebase from '../../../hooks/useFirebase';
 
 const pages = ['home', 'shop', 'contact'];
 const settings = ['Profile', 'Dashboard', 'Logout'];
+const loginSettings = ['login', 'signup'];
 
 const Header = () => {
+    const { user, logOut } = useFirebase();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -68,7 +72,7 @@ const Header = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <Link to={`/${page}`} style={{textDecoration: 'none'}}>
+                                <Link to={`/${page}`} style={{ textDecoration: 'none' }}>
                                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                                         <Typography textAlign="center">{page}</Typography>
                                     </MenuItem>
@@ -86,7 +90,7 @@ const Header = () => {
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
                         {pages.map((page) => (
-                            <Link to={`/${page}`} style={{textDecoration: 'none'}}>
+                            <Link to={`/${page}`} style={{ textDecoration: 'none' }}>
                                 <Button
                                     key={page}
                                     onClick={handleCloseNavMenu}
@@ -100,9 +104,20 @@ const Header = () => {
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
+                            {
+                                user?.displayName ?
+                                    <>
+                                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                            <Avatar alt={user.displayName} src="/static/images/avatar/2.jpg" />
+                                        </IconButton>
+                                    </>
+                                    :
+                                    <>
+                                        <IconButton onClick={handleOpenUserMenu} sx={{ p: 2 }}>
+                                            <LoginIcon sx={{ color: 'white' }} />
+                                        </IconButton>
+                                    </>
+                            }
                         </Tooltip>
                         <Menu
                             sx={{ mt: '45px' }}
@@ -120,16 +135,31 @@ const Header = () => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
+                            {
+                                user?.email ?
+                                    <>
+                                        {settings.map((setting) => (
+                                            <MenuItem key={setting} onClick={handleCloseNavMenu}>
+                                                <Button textAlign="center">{setting}</Button>
+                                            </MenuItem>
+                                        ))}
+                                    </>
+                                    :
+                                    <>
+                                        {loginSettings.map((setting) => (
+                                            <MenuItem key={setting} onClick={handleCloseNavMenu}>
+                                                <Link to={`/${setting}`} style={{ textDecoration: 'none' }}>
+                                                    <Typography textAlign="center" variant="button">{setting}</Typography>
+                                                </Link>
+                                            </MenuItem>
+                                        ))}
+                                    </>
+                            }
                         </Menu>
                     </Box>
                 </Toolbar>
             </Container>
-        </AppBar>
+        </AppBar >
     );
 };
 

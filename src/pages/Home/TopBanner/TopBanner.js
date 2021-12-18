@@ -1,9 +1,10 @@
 import React from 'react';
 import Slider from "react-slick";
-import { Box, Button, Container } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import img1 from '../../../images/banner1.png';
 import img2 from '../../../images/banner2.png';
 import img3 from '../../../images/banner3.png';
+import './TopBanner.css';
 
 const TopBanner = () => {
     var settings = {
@@ -30,8 +31,7 @@ const TopBanner = () => {
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 2
+                    slidesToScroll: 1
                 }
             },
             {
@@ -44,41 +44,41 @@ const TopBanner = () => {
         ]
     };
     return (
-        <Box style={{backgroundColor: '#faf4f2'}}>
+        <Box style={{ backgroundColor: '#faf4f2' }}>
             <Container sx={{ padding: '20px 0' }}>
                 <Slider {...settings}>
                     <div>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <div style={{ textAlign: 'left' }}>
-                                <p style={{ margin: '0', fontSize: '20px' }}>Build A Beautiful Garden</p>
-                                <p style={{ margin: '10px 0', fontSize: '46px', fontWeight: 'bold' }}>All Types Plants</p>
-                                <p style={{ marginTop: '0', fontSize: '32px' }}>Available Here</p>
+                        <div className="contents">
+                            <div className="banner-texts">
+                                <Typography style={{ margin: '0', fontSize: '20px' }}>Build A Beautiful Garden</Typography>
+                                <Typography style={{ margin: '10px 0', fontSize: '46px', fontWeight: 'bold' }}>All Types Plants</Typography>
+                                <Typography style={{ marginTop: '0', fontSize: '32px' }}>Available Here</Typography>
                                 <Button variant="contained" color="success">Buy Now</Button>
                             </div>
                             <div>
-                                <img style={{ height: '250px', width: '200px' }} src={img1} alt="" />
+                                <img style={{ width: '300px' }} src={img1} alt="" />
                             </div>
                         </div>
                     </div>
                     <div>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <div style={{ textAlign: 'left' }}>
-                                <p style={{ margin: '0', fontSize: '20px' }}>Build A Beautiful Garden</p>
-                                <p style={{ margin: '10px 0', fontSize: '46px', fontWeight: 'bold' }}>All Types Plants</p>
-                                <p style={{ marginTop: '0', fontSize: '32px' }}>Available Here</p>
+                        <div className="contents">
+                            <div className="banner-texts">
+                                <Typography style={{ margin: '0', fontSize: '20px' }}>Build A Beautiful Garden</Typography>
+                                <Typography style={{ margin: '10px 0', fontSize: '46px', fontWeight: 'bold' }}>All Types Plants</Typography>
+                                <Typography style={{ marginTop: '0', fontSize: '32px' }}>Available Here</Typography>
                                 <Button variant="contained" color="success">Buy Now</Button>
                             </div>
                             <div>
-                                <img style={{ height: '250px', width: '200px' }} src={img2} alt="" />
+                                <img style={{ width: '300px' }} src={img2} alt="" />
                             </div>
                         </div>
                     </div>
                     <div>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <div style={{ textAlign: 'left' }}>
-                                <p style={{ margin: '0', fontSize: '20px' }}>Build A Beautiful Garden</p>
-                                <p style={{ margin: '10px 0', fontSize: '46px', fontWeight: 'bold' }}>All Types Plants</p>
-                                <p style={{ marginTop: '0', fontSize: '32px' }}>Available Here</p>
+                        <div className="contents">
+                            <div className="banner-texts">
+                                <Typography style={{ margin: '0', fontSize: '20px' }}>Build A Beautiful Garden</Typography>
+                                <Typography style={{ margin: '10px 0', fontSize: '46px', fontWeight: 'bold' }}>All Types Plants</Typography>
+                                <Typography style={{ marginTop: '0', fontSize: '32px' }}>Available Here</Typography>
                                 <Button variant="contained" color="success">Buy Now</Button>
                             </div>
                             <div>
