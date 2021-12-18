@@ -52,7 +52,7 @@ const TopBanner = () => {
                             <div className="banner-texts">
                                 <Typography style={{ margin: '0', fontSize: '20px' }}>Build A Beautiful Garden</Typography>
                                 <Typography style={{ margin: '10px 0', fontSize: '46px', fontWeight: 'bold' }}>All Types Plants</Typography>
-                                <Typography style={{ marginTop: '0', fontSize: '32px' }}>Available Here</Typography>
+                                <Typography style={{ marginTop: '0', fontSize: '32px', marginBottom: '20px' }}>Available Here</Typography>
                                 <Button variant="contained" color="success">Buy Now</Button>
                             </div>
                             <div>
@@ -65,7 +65,7 @@ const TopBanner = () => {
                             <div className="banner-texts">
                                 <Typography style={{ margin: '0', fontSize: '20px' }}>Build A Beautiful Garden</Typography>
                                 <Typography style={{ margin: '10px 0', fontSize: '46px', fontWeight: 'bold' }}>All Types Plants</Typography>
-                                <Typography style={{ marginTop: '0', fontSize: '32px' }}>Available Here</Typography>
+                                <Typography style={{ marginTop: '0', fontSize: '32px', marginBottom: '20px' }}>Available Here</Typography>
                                 <Button variant="contained" color="success">Buy Now</Button>
                             </div>
                             <div>
@@ -78,7 +78,7 @@ const TopBanner = () => {
                             <div className="banner-texts">
                                 <Typography style={{ margin: '0', fontSize: '20px' }}>Build A Beautiful Garden</Typography>
                                 <Typography style={{ margin: '10px 0', fontSize: '46px', fontWeight: 'bold' }}>All Types Plants</Typography>
-                                <Typography style={{ marginTop: '0', fontSize: '32px' }}>Available Here</Typography>
+                                <Typography style={{ marginTop: '0', fontSize: '32px', marginBottom: '20px' }}>Available Here</Typography>
                                 <Button variant="contained" color="success">Buy Now</Button>
                             </div>
                             <div>

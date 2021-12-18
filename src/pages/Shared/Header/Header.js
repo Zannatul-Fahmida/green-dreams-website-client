@@ -6,7 +6,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import useFirebase from '../../../hooks/useFirebase';
 
 const pages = ['home', 'shop', 'contact'];
-const settings = ['Profile', 'Dashboard', 'Logout'];
+const settings = ['profile', 'dashboard', 'Logout'];
 const loginSettings = ['login', 'signup'];
 
 const Header = () => {
@@ -140,7 +140,9 @@ const Header = () => {
                                     <>
                                         {settings.map((setting) => (
                                             <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                                                <Button textAlign="center" onClick={setting==='logout' && {logOut}}>{setting}</Button>
+                                                <Link to={setting !== 'Logout' && `/${setting}`} style={{ textDecoration: 'none' }}>
+                                                    <Button textAlign="center" onClick={setting === 'Logout' && logOut}>{setting}</Button>
+                                                </Link>
                                             </MenuItem>
                                         ))}
                                     </>
