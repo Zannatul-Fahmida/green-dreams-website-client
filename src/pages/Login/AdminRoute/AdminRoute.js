@@ -6,6 +6,7 @@ import useFirebase from '../../../hooks/useFirebase';
 const AdminRoute = ({ children, ...rest }) => {
     const {user, admin, isLoading} = useFirebase();
     const location = useLocation();
+    console.log(user.email, admin);
     if(isLoading){
         return <CircularProgress />
     }

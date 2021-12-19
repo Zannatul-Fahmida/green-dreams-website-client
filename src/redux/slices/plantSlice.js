@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const fetchTrees = createAsyncThunk(
+export const fetchPlants = createAsyncThunk(
     '',
     async () =>{
         const response = await fetch()
@@ -8,8 +8,8 @@ export const fetchTrees = createAsyncThunk(
         return response;
     }
 )
-const treeSlice = createSlice({
-    name: 'tree',
+const plantSlice = createSlice({
+    name: 'plant',
     initialState: {
         discover: [],
         cartList: [],
@@ -20,9 +20,9 @@ const treeSlice = createSlice({
             state.cartList.push(payload);
         },
         removeFromCart: (state, { payload }) => {
-            state.cartList = state.cartList.filter(tree => tree.id !== payload)
+            state.cartList = state.cartList.filter(plant => plant.id !== payload)
         },
     },
 });
-export const { addToCart, removeFromCart } = treeSlice.actions;
-export default treeSlice.reducer;
+export const { addToCart, removeFromCart } = plantSlice.actions;
+export default plantSlice.reducer;

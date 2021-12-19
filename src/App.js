@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AllPlants from './pages/AllPlants/AllPlants';
 import Contact from './pages/Contact/Contact';
@@ -16,35 +16,41 @@ import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Signup from './pages/Login/Signup/Signup';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './pages/Shared/Header/Header';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/shop" element={<AllPlants />} />
-        <Route path="/details/:plantId" element={<PrivateRoute><PlantDetails /></PrivateRoute>} />
-        <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
-          <Route exact path="/dashboard" element={<Dashboard />}>
-          </Route>
-          <Route path="/dashboard/reviews" element={<Reviews />}>
-          </Route>
-          <Route path="/dashboard/myOrders" element={<MyOrders />}>
-          </Route>
-          <Route path="/dashboard/makeAdmin" element={<AdminRoute><MakeAdmin /></AdminRoute>}>
-          </Route>
-          <Route path="/dashboard/addPlants" element={<AdminRoute><AddPlants /></AdminRoute>}>
-          </Route>
-          <Route path="/dashboard/allOrders" element={<AdminRoute><AllOrders /></AdminRoute>}>
-          </Route>
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/shop" element={<AllPlants />} />
+            <Route path="/details/:plantId" element={<PrivateRoute><PlantDetails /></PrivateRoute>} />
+            <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
+              <Route exact path="/dashboard" element={<Dashboard />}>
+              </Route>
+              <Route path="/dashboard/reviews" element={<Reviews />}>
+              </Route>
+              <Route path="/dashboard/myOrders" element={<MyOrders />}>
+              </Route>
+              <Route path="/dashboard/makeAdmin" element={<AdminRoute><MakeAdmin /></AdminRoute>}>
+              </Route>
+              <Route path="/dashboard/addPlants" element={<AdminRoute><AddPlants /></AdminRoute>}>
+              </Route>
+              <Route path="/dashboard/allOrders" element={<AdminRoute><AllOrders /></AdminRoute>}>
+              </Route>
+            </Route>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
     </div>
   );
 }

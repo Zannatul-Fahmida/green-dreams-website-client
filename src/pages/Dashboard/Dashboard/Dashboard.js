@@ -1,6 +1,6 @@
 import { AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemText, Toolbar, Typography } from '@mui/material';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import useFirebase from '../../../hooks/useFirebase';
 import MenuIcon from '@mui/icons-material/Menu';
 import PropTypes from 'prop-types';
@@ -126,7 +126,8 @@ const Dashboard = (props) => {
                 component="main"
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
-                <Typography variant="h4">Welcome To Dashboard</Typography>
+                <Toolbar />
+                <Outlet></Outlet>
             </Box>
         </Box>
     );

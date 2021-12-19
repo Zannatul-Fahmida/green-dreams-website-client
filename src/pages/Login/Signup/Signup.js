@@ -41,7 +41,7 @@ const Signup = () => {
                         />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
+                            id="standard-basic1"
                             label="Your Email"
                             name="email"
                             type="email"
@@ -50,7 +50,7 @@ const Signup = () => {
                         />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
+                            id="standard-basic2"
                             label="Your Password"
                             type="password"
                             name="password"
@@ -59,7 +59,7 @@ const Signup = () => {
                         />
                         <TextField
                             sx={{ width: '75%', m: 1 }}
-                            id="standard-basic"
+                            id="standard-basic3"
                             label="Retype Your Password"
                             type="password"
                             name="password2"

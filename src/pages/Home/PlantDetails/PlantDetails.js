@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 import useFirebase from '../../../hooks/useFirebase';
+import './PlantDetails.css';
 
 const PlantDetails = () => {
     const { plantId } = useParams();
@@ -11,6 +12,7 @@ const PlantDetails = () => {
     const [order, setOrder] = useState([]);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [address, setAddress] = useState('');
     console.log(name, email);
     useEffect(() => {
         fetch(`https://serene-caverns-16512.herokuapp.com/plants/${plantId}`)
@@ -27,7 +29,7 @@ const PlantDetails = () => {
         const plantImg = order.img;
         const plantPrice = order.price;
         const plantDescription = order.description;
-        const data = { plantId, plantName, plantImg, plantPrice, plantDescription, name, email, status };
+        const data = { plantId, plantName, plantImg, plantPrice, plantDescription, name, email, address, status };
         fetch(`https://serene-caverns-16512.herokuapp.com/addOrder`, {
             method: "POST",
             headers: { "content-type": "application/json" },
@@ -41,7 +43,7 @@ const PlantDetails = () => {
             });
     };
     return (
-        <Container>
+        <Container className="details-container">
             <Grid container spacing={2} sx={{ alignItems: 'center' }}>
                 <Grid item xs={12} md={6} sx={{ textAlign: 'left' }}>
                     <Typography variant="h4" sx={{ fontWeight: 'bold' }}>{plant.name}</Typography>
@@ -57,23 +59,26 @@ const PlantDetails = () => {
                     <form>
                         <TextField
                             required
-                            label="Full Name"
+                            name="Full Name"
+                            value={user.displayName}
                             defaultValue={user.displayName}
-                            onBlur={(e)=>setName(e.target.value)}
+                            onBlur={(e) => setName(e.target.value)}
                             variant="outlined"
                             sx={{ width: 1, mb: 2 }}
                         /><br />
                         <TextField
                             required
-                            label="Email"
+                            name="Email"
+                            value={user.email}
                             defaultValue={user.email}
-                            onBlur={(e)=>setEmail(e.target.value)}
+                            onBlur={(e) => setEmail(e.target.value)}
                             variant="outlined"
                             sx={{ width: 1, mb: 2 }}
                         /><br />
                         <TextField
                             required
                             label="Address"
+                            onBlur={(e) => setAddress(e.target.value)}
                             variant="outlined"
                             sx={{ width: 1, mb: 2 }}
                         /><br />
@@ -81,7 +86,7 @@ const PlantDetails = () => {
                     </form>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <img src={plant.img} alt="" />
+                    <img style={{ width: '100%' }} src={plant.img} alt="" />
                 </Grid>
             </Grid>
         </Container>

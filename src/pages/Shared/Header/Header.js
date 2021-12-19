@@ -137,7 +137,7 @@ const Header = () => {
                         >
                             {
                                 user?.email ?
-                                    <>
+                                    <Box>
                                         {settings.map((setting) => (
                                             <MenuItem key={setting} onClick={handleCloseNavMenu}>
                                                 <Link to={setting !== 'Logout' && `/${setting}`} style={{ textDecoration: 'none' }}>
@@ -145,9 +145,9 @@ const Header = () => {
                                                 </Link>
                                             </MenuItem>
                                         ))}
-                                    </>
+                                    </Box>
                                     :
-                                    <>
+                                    <Box>
                                         {loginSettings.map((setting) => (
                                             <MenuItem key={setting} onClick={handleCloseNavMenu}>
                                                 <Link to={`/${setting}`} style={{ textDecoration: 'none' }}>
@@ -155,7 +155,7 @@ const Header = () => {
                                                 </Link>
                                             </MenuItem>
                                         ))}
-                                    </>
+                                    </Box>
                             }
                         </Menu>
                     </Box>
