@@ -18,6 +18,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Header from './pages/Shared/Header/Header';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import DashboardHome from './pages/Dashboard/DashboardHome/DashboardHome';
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
             <Route path="/shop" element={<AllPlants />} />
             <Route path="/details/:plantId" element={<PrivateRoute><PlantDetails /></PrivateRoute>} />
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
-              <Route exact path="/dashboard" element={<Dashboard />}>
+              <Route exact path="/dashboard" element={<DashboardHome />}>
               </Route>
               <Route path="/dashboard/reviews" element={<Reviews />}>
               </Route>
