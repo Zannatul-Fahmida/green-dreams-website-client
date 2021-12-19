@@ -72,6 +72,7 @@ const Dashboard = (props) => {
             <AppBar
                 position="fixed"
                 sx={{
+                    bgcolor: 'success.main',
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
                 }}
